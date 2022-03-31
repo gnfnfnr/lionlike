@@ -1,9 +1,14 @@
-header {
-  position: fixed;
-  width: 100%;
+body {
+  position: relative;
 }
 
 .nav {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+
+.nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,22 +19,33 @@ header {
   font-size: 80px;
 }
 
-.nav > button {
+.nav-container > button {
   color: #005dcc;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   border: none;
   background-color: white;
+  box-shadow: 0px 0px 5px 0px #4c4449;
+}
+
+main,
+footer {
+  line-height: 1.5;
+  position: absolute;
+  width: 100%;
 }
 
 main {
-  line-height: 1.5;
+  top: 280px;
+  background-color: white;
 }
 
 .main-title {
   background-color: #f3f6f9;
   height: 280px;
+  position: fixed;
+  width: 100%;
 }
 
 .wrap-content {
@@ -44,13 +60,13 @@ main {
 }
 
 .ab-title {
-  font-size: 40px;
+  font-size: 50px;
   padding-top: 80px;
 }
 
 .title-bold {
   font-weight: 900;
-  font-size: 40px;
+  font-size: 50px;
 }
 
 .ab-des {
@@ -146,6 +162,7 @@ main {
 
 .item-list {
   list-style: "-";
+  height: 100px;
 }
 
 .ab03-des > p {
@@ -158,17 +175,13 @@ main {
   overflow: hidden;
   margin-bottom: 60px;
   padding-top: 80px;
-}
-
-.img-container {
-  width: 100%;
-  height: 100%;
+  display: flex;
 }
 
 .img-container > img {
   object-fit: cover;
-  width: 100%;
-  height: 100%;
+  width: 1200px;
+  height: 550px;
 }
 
 .img-slide {
@@ -182,7 +195,7 @@ main {
   border-radius: 3px;
   display: flex;
   margin-bottom: 120px;
-  background-color: #005dcc;
+  background-color: #e2e8f9;
 }
 
 .slide-arrow {
@@ -195,7 +208,7 @@ main {
 
 .slide-zone {
   width: 25%;
-  background-color: yellow;
+  background-color: #003dab;
   height: inherit;
   border-radius: inherit;
 }
@@ -208,10 +221,91 @@ footer {
   background-color: #222;
   border-bottom: 1px solid #3e3e3e;
   color: #ddd;
+  top: 2800px;
 }
 
 footer > .wrap-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 60px;
+}
+
+footer a:link,
+footer a:visited {
+  text-decoration: none;
+  color: #ddd;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.contact-des {
+  font-size: 14px;
+}
+
+.contact-des,
+.follow-of {
+  padding-top: 30px;
+}
+
+.contact-list {
+  display: flex;
+  padding-top: 25px;
+}
+
+.contact-list > li {
+  border: 1px solid white;
+  margin-right: 20px;
+  padding: 10px 20px;
+  border-radius: 7px;
+}
+
+.contact-list > li i {
+  padding-left: 38px;
+}
+
+.follow-fl {
+  margin-bottom: 10px;
+}
+
+.sns-list {
+  display: flex;
+}
+
+.sns-list > li {
+  background: white;
+  color: #222;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+address {
+  padding: 20px 0;
+  font-size: 14px;
+}
+
+.overlay-nav {
+  background-color: black;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.ol-list {
+  font-size: 60px;
+  font-weight: 600;
+}
+
+.ol-list > li {
+  padding: 12px 0;
 }
