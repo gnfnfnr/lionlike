@@ -16,7 +16,8 @@ body {
   z-index: 1;
 }
 
-.nav-container > button {
+.nav-container > button,
+.ol-nav-container > button {
   color: #005dcc;
   width: 40px;
   height: 40px;
@@ -27,6 +28,12 @@ body {
   position: fixed;
   z-index: 999;
   right: 40px;
+}
+
+.nav-container > button:hover,
+.ol-nav-container > button:hover {
+  background-color: #005dcc;
+  color: white;
 }
 
 main,
@@ -183,6 +190,7 @@ main {
 
 .img-trans {
   display: flex;
+  transition: all 0.5s ease-out 0s;
 }
 
 .img-container img {
@@ -223,6 +231,7 @@ main {
   background-color: #003dab;
   height: inherit;
   border-radius: inherit;
+  transition: all 0.5s ease-out 0s;
 }
 
 .none {
@@ -292,11 +301,10 @@ footer a:visited {
 }
 
 .sns-list > li {
-  background: white;
-  color: #222;
-  padding: 0;
   width: 30px;
   height: 30px;
+  background: white;
+  color: #222;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -310,18 +318,33 @@ address {
 }
 
 #overlay-nav {
-  background-color: black;
+  background-color: #000000f2;
   position: fixed;
   width: 100%;
   height: 100%;
   color: white;
   align-items: center;
   justify-content: center;
+  text-align: center;
   top: 0;
+  z-index: 999;
 }
 
 .active {
   display: flex;
+}
+
+.ol-nav {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.ol-nav-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+  align-items: center;
 }
 
 .ol-list {
@@ -331,4 +354,36 @@ address {
 
 .ol-list > li {
   padding: 12px 0;
+}
+
+.ol-list > li:hover > a {
+  display: none;
+}
+
+.ol-list > li:nth-child(1):hover::before {
+  content: "회사 소개";
+}
+
+.ol-list > li:nth-child(2):hover::before {
+  content: "비대면 서비스";
+}
+
+.ol-list > li:nth-child(3):hover::before {
+  content: "함께하는 고객";
+}
+
+.ol-list > li:nth-child(4):hover::before {
+  content: "블로그";
+}
+
+.ol-list > li:nth-child(5):hover::before {
+  content: "문의";
+}
+
+.ol-sns {
+  font-size: 20px;
+}
+
+.ol-sns > .sns-list {
+  justify-content: center;
 }

@@ -1,5 +1,7 @@
+// top btn
 const olBtn = document.querySelector(".nav-container > button");
 const overlay = document.querySelector("#overlay-nav");
+const homeBtn = document.querySelector(".ol-nav-container > button");
 const body = document.querySelector("body");
 
 function nav() {
@@ -8,10 +10,10 @@ function nav() {
 }
 
 olBtn.addEventListener("click", nav);
+homeBtn.addEventListener("click", nav);
 
 
 //slide
-// const arrow = document.querySelector;
 const rgBtn = document.querySelector(".btn-right");
 const lgBtn = document.querySelector(".btn-left");
 const img = document.querySelector(".img-container  >img");
@@ -22,7 +24,6 @@ let barAg = 0;
 
 function rgSlide() {
     // move 
-    console.dir(trans)
     const limit = img.offsetWidth;
     const barlimit = bar.offsetWidth;
     if (angle <= -limit*3) {
@@ -59,3 +60,8 @@ function lgSlide() {
 
 lgBtn.addEventListener("click", lgSlide);
 rgBtn.addEventListener("click", rgSlide);
+
+
+setInterval(function () {
+    rgBtn.click();
+}, 3000);
