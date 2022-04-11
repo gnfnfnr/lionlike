@@ -16,16 +16,28 @@ homeBtn.addEventListener("click", nav);
 //slide
 const rgBtn = document.querySelector(".btn-right");
 const lgBtn = document.querySelector(".btn-left");
-const img = document.querySelector(".img-container  >img");
+const img = document.querySelector(".img-container > img");
+const imgbox = document.querySelector(".img-container");
 const trans = document.querySelector(".img-trans");
 const bar = document.querySelector(".slide-zone");
 let angle = 0;
 let barAg = 0;
+let limit = img.offsetWidth;
+let barlimit = bar.offsetWidth;
 
+window.addEventListener("resize", function () {
+    angle = 0;
+    barAg = 0;
+    limit = 0;
+    barlimit = 0;
+    trans.style.transform = `translate(${angle}px, 0)`;
+    bar.style.transform = `translate(${barAg}px, 0)`;
+});
+    
 function rgSlide() {
+    limit = img.offsetWidth;
+    barlimit = bar.offsetWidth;
     // move 
-    const limit = img.offsetWidth;
-    const barlimit = bar.offsetWidth;
     if (angle <= -limit*3) {
         angle = 0;
         barAg = 0;
@@ -42,8 +54,8 @@ function rgSlide() {
 
 function lgSlide() {
     // move 
-    const limit = img.offsetWidth;
-    const barlimit = bar.offsetWidth;
+    limit = img.offsetWidth;
+    barlimit = bar.offsetWidth;
     if (angle === 0) {
         angle = -limit*3; 
         barAg = +barlimit*3;
