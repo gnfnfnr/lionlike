@@ -39,12 +39,12 @@ body {
 main,
 footer {
   line-height: 1.5;
-  position: absolute;
+  position: relative;
   width: 100%;
+  top: 280px;
 }
 
 main {
-  top: 280px;
   background-color: white;
 }
 
@@ -257,13 +257,12 @@ footer {
   background-color: #222;
   border-bottom: 1px solid #3e3e3e;
   color: #ddd;
-  top: 2838px;
 }
 
 footer > .wrap-content {
   display: flex;
   justify-content: space-around;
-  padding: 60px;
+  padding: 60px 0;
 }
 
 footer a:link,
@@ -280,7 +279,7 @@ footer a:visited {
 
 .contact-des,
 .follow-of {
-  padding-top: 30px;
+  padding-top: 38px;
 }
 
 .contact-list {
@@ -291,12 +290,12 @@ footer a:visited {
 .contact-list > li {
   border: 1px solid white;
   margin-right: 20px;
-  padding: 10px 20px;
+  padding: 5px 10px;
   border-radius: 7px;
 }
 
 .contact-list > li i {
-  padding-left: 38px;
+  padding-left: 30px;
 }
 
 .follow-fl {

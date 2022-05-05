@@ -32,6 +32,7 @@ window.addEventListener("resize", function () {
     barlimit = 0;
     trans.style.transform = `translate(${angle}px, 0)`;
     bar.style.transform = `translate(${barAg}px, 0)`;
+    console.log()
 });
     
 function rgSlide() {
