@@ -1,30 +1,44 @@
-import time
-import random
+#1
+total_dict = {}
 
-lunch = ["된장찌개", "피자", "햄버거", "제육볶음", "짜장면"]
 while True:
-    menu = input("추가하실 메뉴를 입력하세요")
-    if menu == "q":
+    question = input("질문을 입력해주세요")
+    if question == "q":
         break
-    else:
-        lunch.append(menu)
+    total_dict[question] = ""
 
-lunch_set = set(lunch)
-print(lunch)
+print(total_dict)
 
-
-set_lunch = set(lunch)
-while True:
-    item = input("삭제하실 음식을 선택해주세요")
-    if item == "q":
-        break
-    else:
-        set_lunch = set_lunch - set([item])
-
-print(set_lunch, "중에서 선택합니다.")
-for i in range(5, 0, -1):
+for i in total_dict:
     print(i)
-    time.sleep(1)
+    answer = input("답변을 입력하세요")
+    total_dict[i] = answer
 
+print(total_dict)
 
-print(random.choice(list(set_lunch)))
+#2
+total_list = []
+
+while True:
+    total_dict = {}
+    question = input("질문을 입력해주세요")
+    if question == "q":
+        break
+    total_dict["질문"] = question
+    total_dict["답변"] = ""
+    total_list.append(total_dict)
+
+print(total_list)
+
+for i in total_list:
+    print(i["질문"])
+    answer = input("답변을 입력하세요")
+    i["답변"] = answer
+
+print(total_list)
+
+name = 2
+if name == 1:
+    print("을")
+elif name == 2:
+    print("dff")
