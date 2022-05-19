@@ -8,20 +8,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <ul class="container">
-        <li id="lion">lion</li>
-        <li id="tiger">tiger</li>
-        <li id="bear">bear</li>
-        <li class="animal">animal</li>
+    <ul class="list ">
+        <li class="tab-btn" data-id="0">ytb</li>
+        <li class="tab-btn" data-id="1">steam</li>
+        <li class="tab-btn" data-id="2">google</li>
     </ul>
-    <button class="btn">나타남</button>
-    <div class="box1"></div>
-    <div class="font">
-        <span>글자 크기 변경</span>
-        <button class="font-plus">크게</button>
-        <button class="font-mius">작게</button>
+    <!-- <div class="tab-box">
+        <span>
+            This is the first page
+        </span>
+    </div> -->
+    <div class="tab-box hidden">
+        <a href="https://www.youtube.com/" title="유튜브로 이동하기">
+            <span>YouTube</span>
+        </a>
+        <i class="fa-brands fa-youtube fa-3x"></i>
     </div>
-
+    <div class="tab-box hidden">
+        <a href="https://www.google.co.kr/" title="구글로 이동하기">
+            <span>Google</span>
+        </a>
+        <i class="fab fa-google fa-3x"></i>
+    </div>
+    <div class="tab-box hidden">
+        <a href="https://store.steampowered.com/?l=koreana" title="스팀 이동하기">
+            <span>steam</span>
+        </a>
+        <i class="fa-brands fa-steam fa-3x"></i>
+    </div>
     <script src="pract.js"></script>
+    <script src="https://kit.fontawesome.com/a1e2d1fd84.js" crossorigin="anonymous"></script>
 </body>
 </html>

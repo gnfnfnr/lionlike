@@ -1,17 +1,45 @@
-.container{
-    width: 200px;
-    height: 200px;
-    box-shadow: 1px 1px 8px 2px powderblue;
+.list{
+    display: flex;
+    height: 80px;
+    border-bottom: 1px solid gray;
+    list-style: none;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.box1{
-    width: 400px;
-    height: 400px;
+.active{
+    border-bottom: 3px solid orange;
+}
+
+
+.list > li {
+    padding: 20px 30px;
+    font-weight: 600;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.tab-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 40px;
+    width: 100%;
+    height: 500px;
+}
+
+.tab-box span{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.hidden{
     display: none;
 }
 
-.color{
-    background-color: aliceblue;
-    box-shadow: 1px 1px 8px 2px black;
-    display: block;
+.list > li:hover{
+    background-color: peachpuff;
 }
