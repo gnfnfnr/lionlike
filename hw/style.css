@@ -1,0 +1,17 @@
+.container{
+    width: 200px;
+    height: 200px;
+    box-shadow: 1px 1px 8px 2px powderblue;
+}
+
+.box1{
+    width: 400px;
+    height: 400px;
+    display: none;
+}
+
+.color{
+    background-color: aliceblue;
+    box-shadow: 1px 1px 8px 2px black;
+    display: block;
+}
