@@ -1,24 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import TitleBig from './compontent/font';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  return(
+    <>
+      <div>
+        <h1>여기는 태그 닫힘과 열림, self-closing 공부 예시</h1>
+        <TitleBig>이 태그는 안에 내용물이 있어 태그 열고 닫히는 것을 이용했다.</TitleBig>
+      </div>
+    </>
   );
 }
 
