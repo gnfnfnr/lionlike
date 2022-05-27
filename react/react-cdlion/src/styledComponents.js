@@ -11,7 +11,7 @@ export const MediaDiv = styled.div`
   } ;
 `;
 
-export const Header = styled.div`
+export const HeaderDiv = styled.div`
   width: 768px;
   height: auto;
   display: flex;
@@ -155,7 +155,7 @@ export const PagenumberDiv = styled.div`
   border-radius: 5px;
 `;
 
-export const Footer = styled.div`
+export const FooterDiv = styled.div`
   margin-top: 30px;
   display: flex;
   flex-direction: column;
