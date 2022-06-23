@@ -173,3 +173,94 @@ export const FooterSmall = styled.span`
   margin: 5px;
   font-size: 12px;
 `;
+
+export const CursorDiv = styled.div`
+  cursor: pointer;
+`;
+
+export const PostReplDiv = styled.div`
+  border-top: 2px solid orange;
+  margin-bottom: 15px;
+  width: 100%;
+  line-height: 24px;
+  padding-top: 20px;
+  padding-left: 10px;
+  box-sizing: border-box;
+`;
+
+export const RepelTitleDiv = styled.div`
+  font-size: 12px;
+  margin: 20px 0 10px 10px;
+`;
+
+export const RepelWriter = styled.div`
+  margin-top: 10px;
+  margin-left: 10px;
+  font-weight: bolder;
+`;
+
+export const Repel = styled.div`
+  font-size: 12px;
+  margin-left: 20px;
+`;
+
+export const WriterDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  width: 95%;
+`;
+
+export const RepelInput = styled.textarea`
+  margin: 0 auto;
+  width: 100%;
+  padding: 10px;
+  height: 30px;
+  border-radius: 5px;
+  font-family: "Noto Sans KR", sans-serif;
+`;
+
+export const RepelSubmitDiv = styled.div`
+  width: 100px;
+  margin-left: 10px;
+  border-radius: 5px;
+  background-color: #f39926;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+`;
+
+export const PostWriteDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const TitleInput = styled.input`
+  margin: 20px 15px 0;
+  height: 30px;
+`;
+
+export const ContentsInput = styled.textarea`
+  margin: 20px 15px 0;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: "Noto Sans KR", sans-serif;
+`;
+
+export const PostSubmitDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+`;
+
+export const PostSubmit = styled.button`
+  height: 40px;
+  width: 100px;
+  background: orange;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 2px 2px 3px 1px #ab9982;
+  cursor: pointer;
+`;

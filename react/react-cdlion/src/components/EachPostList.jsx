@@ -1,17 +1,20 @@
-import React from "react";
-import { EachPostLi, PostRepl, PostLink } from "../styledComponents";
+import { EachPostLi, PostRepl, PostLink, CursorDiv } from "../styledComponents";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationPin } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
-function EachPostList({ title, repelCount }) {
+function EachPostList({ title, id }) {
+  const navigate = useNavigate();
+  const clickPost = () => {
+    navigate(`/post/${id}`);
+  };
   return (
     <EachPostLi>
-      <div>
+      <CursorDiv>
         <FontAwesomeIcon icon={faLocationPin} />
-        <PostLink>{title}</PostLink>
-      </div>
-      <PostRepl>[{repelCount}]</PostRepl>
+        <PostLink onClick={clickPost}>{title}</PostLink>
+      </CursorDiv>
     </EachPostLi>
   );
 }
