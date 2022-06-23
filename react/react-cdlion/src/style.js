@@ -8,8 +8,8 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
-  fontColor: "white",
-  bgColor: "black",
+  fontColor: "#817e3d",
+  bgColor: "#403d36e6",
 };
 
 export const GlobalStyle = createGlobalStyle`

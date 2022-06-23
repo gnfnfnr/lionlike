@@ -1,19 +1,29 @@
+import { useNavigate } from "react-router-dom";
 import {
   HeaderDiv,
   TitleLogoDiv,
   TitleBig,
   TitleSmall,
   SubHeaderDiv,
+  CursorDiv,
 } from "../styledComponents";
 
 function Headers({ darkMode, setDarkMode }) {
   const toggleMode = () => {
     setDarkMode(!darkMode);
   };
+
+  const navigate = useNavigate();
+  const onClick = () => {
+    navigate("/");
+  };
+
   return (
     <HeaderDiv>
       <TitleLogoDiv>
-        <TitleBig>멋사</TitleBig>
+        <CursorDiv>
+          <TitleBig onClick={onClick}>멋사</TitleBig>
+        </CursorDiv>
         <TitleSmall>익명게시판</TitleSmall>
       </TitleLogoDiv>
       <SubHeaderDiv onClick={toggleMode}>

@@ -108,10 +108,10 @@ export const PostTitle = styled.div`
 `;
 
 export const PostListDiv = styled.div`
-    font-size: 16px;
-    font-famuily = 'Moto Sans KR', sans-serif;
-    min-height: 400px;
-    background-color: #fffaf4;
+  font-size: 16px;
+  font-family: "Moto Sans KR", sans-serif;
+  min-height: 400px;
+  background-color: #fffaf4;
 `;
 
 export const LoadingDiv = styled.div`
