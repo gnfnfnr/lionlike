@@ -1,14 +1,22 @@
-import TitleBig from './compontent/font';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Menubar from "./pages/Menubar";
+import Movies from "./pages/Movies";
+import Movie from "./pages/Movie";
 
-function App() {
-  return(
-    <>
-      <div>
-        <h1>여기는 태그 닫힘과 열림, self-closing 공부 예시</h1>
-        <TitleBig>이 태그는 안에 내용물이 있어 태그 열고 닫히는 것을 이용했다.</TitleBig>
-      </div>
-    </>
+const App = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<Menubar />}>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/movies" element={<Movies />}>
+          <Route path=":id" element={<Movie />}></Route>
+        </Route>
+      </Route>
+      <Route path="*" element={<div>아무것도 없음</div>}></Route>
+    </Routes>
   );
-}
+};
 
 export default App;
