@@ -140,7 +140,7 @@ export const PostRepl = styled.div`
 export const PagingSection = styled.section`
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     margin: 0 auto:
     width: 150px; 
     margin-top: 20px;
@@ -154,6 +154,7 @@ export const PagenumberDiv = styled.div`
   align-items: center;
   border: 1px solid #a6640d;
   border-radius: 5px;
+  cursor: pointer;
 `;
 
 export const FooterDiv = styled.div`

@@ -1,3 +1,4 @@
+import React from "react";
 import { SlogunSection, SlogunSmall, SlogunBig } from "../styledComponents";
 
 function Solgun() {
@@ -9,4 +10,4 @@ function Solgun() {
   );
 }
 
-export default Solgun;
+export default React.memo(Solgun);

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   PostTitle,
   PostSection,
@@ -8,77 +8,115 @@ import {
   PostListDiv,
   LoadingDiv,
   CursorDiv,
+  PagingSection,
+  PagenumberDiv,
 } from "../styledComponents";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowsRotate,
   faPenToSquare,
   faSpinner,
+  faArrowLeft,
+  faArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
 import EachPostList from "./EachPostList";
+import axios from "axios";
 
-function Post() {
-  const initialPostList = [
-    { id: 1, title: "리액트 시작" },
-    { id: 1, title: "화산귀한 최고" },
-    { id: 1, title: "매화검존" },
-  ];
-
-  const addPost = () => {
-    setPostList((postLi) => [
-      ...postLi,
-      { id: 4, title: "청명아", repelCount: 44 },
-    ]);
-  };
-
+function Post({ apiUrl }) {
   const [loading, setLoading] = useState(true);
-  const [isPost, setIsPost] = useState(false);
   const [postList, setPostList] = useState([]);
+  const [page, setPage] = useState(1);
+  const [pages, setPages] = useState([]);
 
   const navigation = useNavigate();
   const clickWrite = () => {
     navigation("/write");
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      setPostList(initialPostList);
+  const getPostList = () => {
+    setLoading(true);
+    axios.get(`${apiUrl}list/?page=${page}&page_size=10`).then((response) => {
+      const lastPages = Math.ceil(response.data.count / 10);
+      const tempages = [];
+      for (let index = 1; index <= lastPages; index++) {
+        tempages.push(index);
+      }
+      setPages(tempages);
+      setPostList(response.data.results);
       setLoading(false);
-    }, 1000);
-  }, []);
+    });
+  };
 
+  useEffect(getPostList, [page]);
   return (
-    <PostSection>
-      <PostTitleDiv>
-        <CursorDiv>
-          <FontAwesomeIcon icon={faArrowsRotate} size="lg" onClick={addPost} />
-        </CursorDiv>
-        <PostTitle>익명게시판</PostTitle>
-        <CursorDiv>
+    <>
+      <PostSection>
+        <PostTitleDiv>
+          <CursorDiv>
+            <FontAwesomeIcon
+              icon={faArrowsRotate}
+              size="lg"
+              onClick={getPostList}
+            />
+          </CursorDiv>
+          <PostTitle>익명게시판</PostTitle>
+          <CursorDiv>
+            <FontAwesomeIcon
+              onClick={clickWrite}
+              icon={faPenToSquare}
+              size="lg"
+            />
+          </CursorDiv>
+        </PostTitleDiv>
+        <PostListDiv>
+          {loading ? (
+            <LoadingDiv>
+              <FontAwesomeIcon icon={faSpinner} size="5x" />
+            </LoadingDiv>
+          ) : postList.length === 0 ? (
+            <LoadingDiv>아직 아무것도 없다고!!!!</LoadingDiv>
+          ) : (
+            <ul>
+              {postList.map((li, index) => (
+                <EachPostList key={index} title={li.title} id={li.id} />
+              ))}
+            </ul>
+          )}
+        </PostListDiv>
+      </PostSection>
+      <PagingSection>
+        <PagenumberDiv>
           <FontAwesomeIcon
-            onClick={clickWrite}
-            icon={faPenToSquare}
-            size="lg"
+            icon={faArrowLeft}
+            onClick={() => {
+              if (page > 1) {
+                setPage(page - 1);
+              }
+            }}
           />
-        </CursorDiv>
-      </PostTitleDiv>
-      <PostListDiv>
-        {loading ? (
-          <LoadingDiv>
-            <FontAwesomeIcon icon={faSpinner} size="5x" />
-          </LoadingDiv>
-        ) : isPost ? (
-          <LoadingDiv>아직 아무것도 없다고!!!!</LoadingDiv>
-        ) : (
-          <ul>
-            {postList.map((li, index) => (
-              <EachPostList key={index} title={li.title} id={li.id} />
-            ))}
-          </ul>
-        )}
-      </PostListDiv>
-    </PostSection>
+        </PagenumberDiv>
+        {pages.map((pageNum) => (
+          <PagenumberDiv
+            key={pageNum}
+            onClick={() => {
+              setPage(pageNum);
+            }}
+          >
+            {pageNum}
+          </PagenumberDiv>
+        ))}
+        <PagenumberDiv>
+          <FontAwesomeIcon
+            icon={faArrowRight}
+            onClick={() => {
+              if (pages.length > page) {
+                setPage(page + 1);
+              }
+            }}
+          />
+        </PagenumberDiv>
+      </PagingSection>
+    </>
   );
 }
 

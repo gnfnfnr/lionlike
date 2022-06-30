@@ -1,21 +1,28 @@
+import axios from "axios";
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   PostSection,
-  PostTitle,
-  PostTitleDiv,
   PostWriteDiv,
-  TitleInput,
-  ContentsInput,
   PostSubmitDiv,
   PostSubmit,
   PostListDiv,
 } from "../styledComponents";
+import InputPost from "./InputPost";
+import WhiteTitle from "./WhiteTitle";
 
-const WritePost = () => {
+const SubmitComponent = React.memo(({ onSubmit }) => (
+  <PostSubmitDiv>
+    <PostSubmit onClick={onSubmit}>작성완료</PostSubmit>
+  </PostSubmitDiv>
+));
+
+const WritePost = ({ apiUrl }) => {
   const [inputs, setInputs] = useState({
-    title: "",
-    contents: "",
+    title: " ",
+    contents: " ",
   });
 
   const { title, contents } = inputs;
@@ -27,33 +34,29 @@ const WritePost = () => {
       [name]: value,
     });
   };
-  console.log(inputs);
+
+  const navigate = useNavigate();
+
+  const onSubmit = () => {
+    axios
+      .post(`${apiUrl}/posts/`, {
+        title: inputs.title,
+        contents: inputs.contents,
+        repls: [],
+      })
+      .then(() => {
+        navigate("../");
+      });
+  };
 
   return (
     <PostSection>
-      <PostTitleDiv>
-        <PostTitle>글쓰기</PostTitle>
-      </PostTitleDiv>
+      <WhiteTitle />
       <PostListDiv>
         <PostWriteDiv>
-          <TitleInput
-            name="title"
-            value={title}
-            onChange={onChange}
-            placeholder="제목을 입력해주세요. (15자 이내)"
-          ></TitleInput>
-          <ContentsInput
-            name="contents"
-            value={contents}
-            onChange={onChange}
-            cols="30"
-            rows="10"
-            placeholder="내용을 입력해주세요"
-          ></ContentsInput>
+          <InputPost title={title} contents={contents} onChange={onChange} />
         </PostWriteDiv>
-        <PostSubmitDiv>
-          <PostSubmit>작성완료</PostSubmit>
-        </PostSubmitDiv>
+        <SubmitComponent onSubmit={onSubmit} />
       </PostListDiv>
     </PostSection>
   );

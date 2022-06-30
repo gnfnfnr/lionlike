@@ -8,10 +8,11 @@ import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import Solgun from "./components/Slogun";
 import Post from "./components/Post";
-import PageNumber from "./components/PageNumber";
 import Footer from "./components/Footer";
 import ShowPost from "./components/ShowPost";
 import WritePost from "./components/WritePost";
+
+const API_URL = "https://reactapitest.pythonanywhere.com/api/";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -25,12 +26,16 @@ function App() {
           <Main>
             <Solgun />
             <Routes>
-              <Route path="/" element={<Post />}></Route>
-              <Route path="/write" element={<WritePost />}></Route>
-              <Route path="/post/:id" element={<ShowPost />}></Route>
+              <Route path="/" element={<Post apiUrl={API_URL} />}></Route>
+              <Route
+                path="/write"
+                element={<WritePost apiUrl={API_URL} />}
+              ></Route>
+              <Route
+                path="/post/:id"
+                element={<ShowPost apiUrl={API_URL} />}
+              ></Route>
             </Routes>
-
-            <PageNumber />
           </Main>
           <Footer />
         </MediaDiv>
