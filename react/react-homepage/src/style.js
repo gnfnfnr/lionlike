@@ -4,4 +4,8 @@ import reset from "styled-reset";
 
 export const GlobalStyle = createGlobalStyle`
     ${reset}
+
+    body{
+        background-color: #f5fdef;
+    }
 `;

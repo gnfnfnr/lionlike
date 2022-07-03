@@ -15,9 +15,7 @@ export const LogoDiv = styled.div`
   font-weight: bold;
 `;
 
-export const Main = styled.main`
-  background-color: #f5fdef;
-`;
+export const Main = styled.main``;
 
 export const Section = styled.section``;
 
@@ -90,8 +88,7 @@ export const CommunityPostRepl = styled.div`
   font-size: 12px;
 `;
 
-export const Footer = styled.footer`
-  background-color: #f5fdef;
+export const FooterInfo = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -101,6 +98,7 @@ export const Footer = styled.footer`
 export const FooterAbout = styled.div`
   font-weight: bold;
   font-size: 18px;
+  margin 10px 0;
 `;
 
 export const FooterMade = styled.div`
