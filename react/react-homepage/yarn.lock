@@ -7362,7 +7362,7 @@
     "strip-ansi" "^6.0.1"
     "text-table" "^0.2.0"
 
-"react-dom@^18.0.0", "react-dom@^18.2.0", "react-dom@>= 16.8.0":
+"react-dom@^16.8.0  || ^17.0.0 || ^18.0.0", "react-dom@^18.0.0", "react-dom@^18.2.0", "react-dom@>= 16.8.0":
   "integrity" "sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   "version" "18.2.0"
@@ -7460,7 +7460,7 @@
   optionalDependencies:
     "fsevents" "^2.3.2"
 
-"react@^16.8.0 || ^17 || ^18", "react@^18.0.0", "react@^18.2.0", "react@>= 16", "react@>= 16.8.0":
+"react@^16.8.0  || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17 || ^18", "react@^18.0.0", "react@^18.2.0", "react@>= 16", "react@>= 16.8.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
@@ -7700,6 +7700,14 @@
   "version" "2.75.7"
   optionalDependencies:
     "fsevents" "~2.3.2"
+
+"rooks@^5.11.8":
+  "integrity" "sha512-mS+hBfEtqTumxQZerJkCysuIyzg0Mxmh83ElE2lI+rj5od+YHtSLLexklhtEXFWCXPG2p3xRhEJwi2pmyrIGWw=="
+  "resolved" "https://registry.npmjs.org/rooks/-/rooks-5.11.8.tgz"
+  "version" "5.11.8"
+  dependencies:
+    "lodash.debounce" "^4.0.8"
+    "raf" "^3.4.1"
 
 "run-parallel@^1.1.9":
   "integrity" "sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA=="

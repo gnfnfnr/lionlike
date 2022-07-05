@@ -15,7 +15,9 @@ export const LogoDiv = styled.div`
   font-weight: bold;
 `;
 
-export const Main = styled.main``;
+export const Main = styled.main`
+  padding: 50px 0;
+`;
 
 export const Section = styled.section``;
 
@@ -92,7 +94,6 @@ export const FooterInfo = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 0;
 `;
 
 export const FooterAbout = styled.div`

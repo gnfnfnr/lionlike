@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-import useGeolocation from "react-hook-geolocation";
+import { useGeolocation } from "rooks";
 import axios from "axios";
 
 const BookFrontCover = styled.div`
@@ -70,15 +70,20 @@ function Profile() {
   const [temp, setTemp] = useState();
   const [humdity, sethumdity] = useState();
   const [city, setCity] = useState();
-  const geolocation = useGeolocation();
-  const lat = geolocation.latitude;
-  const long = geolocation.longitude;
-  console.log(lat, long);
+  const [when, setWhen] = useState(true);
+  const geolocation = useGeolocation({
+    when,
+  });
+  // const lat = geolocation.lat;
+  // const lng = geolocation.lng;
+  // console.log(lat, lng);
+  // console.log(geolocation);
 
   const getData = () => {
     const Key = "c7cfd3dfd9015e576d647558a7c4bd13";
     axios
       .get(
+        // `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${Key}&units=metric`
         `https://api.openweathermap.org/data/2.5/weather?lat=37.388288&lon=126.9628928&appid=${Key}&units=metric`
       )
       .then((resoponse) => {
