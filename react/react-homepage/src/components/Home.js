@@ -3,7 +3,9 @@ import {
   Main,
   Img,
   Section,
+  SectionTop,
   SectionTitle,
+  SectionMore,
   ContentsList,
   CommunityPost,
   SectionContainer,
@@ -15,33 +17,27 @@ import {
   CommunityPostTitle,
 } from "./styledComponents";
 import recommendData from "./data.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
   return (
     <>
       <Section>
         <SectionContainer>
-          <SectionTitle>소설</SectionTitle>
-          <ContentsList>
-            {recommendData.map((novel) => (
-              <EachPostLi>
-                <Img src={require(`../img/${novel.novel}.jpg`)} />
-                <EachPostTitle>{novel.name}</EachPostTitle>
-                <EachPostAuthor>작가</EachPostAuthor>
-              </EachPostLi>
-            ))}
-          </ContentsList>
-        </SectionContainer>
-      </Section>
-      <Section>
-        <SectionContainer>
-          <SectionTitle>웹툰</SectionTitle>
+          <SectionTop>
+            <SectionTitle>웹툰</SectionTitle>
+            <SectionMore>
+              더보기
+              <FontAwesomeIcon icon={faArrowRight} />
+            </SectionMore>
+          </SectionTop>
           <ContentsList>
             {recommendData.map((web) => (
               <EachPostLi>
-                <Img src={require(`../img/${web.webtoon}.jpg`)} />
-                <EachPostTitle>{web.name}</EachPostTitle>
-                <EachPostAuthor>작가</EachPostAuthor>
+                <Img src={require(`../img/${web.img}.jpg`)} />
+                <EachPostTitle>{web.title}</EachPostTitle>
+                <EachPostAuthor>{web.author}</EachPostAuthor>
               </EachPostLi>
             ))}
           </ContentsList>

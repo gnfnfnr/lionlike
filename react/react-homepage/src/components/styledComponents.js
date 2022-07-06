@@ -13,6 +13,7 @@ export const MainTitleDiv = styled.div`
 export const LogoDiv = styled.div`
   font-size: 40px;
   font-weight: bold;
+  cursor: pointer;
 `;
 
 export const Main = styled.main`
@@ -27,11 +28,21 @@ export const SectionContainer = styled.div`
   margin: 0 auto;
 `;
 
+export const SectionTop = styled.div`
+  border-bottom: 1px black solid;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const SectionTitle = styled.div`
   font-size: 20px;
   font-weight: bold;
-  border-bottom: 1px black solid;
-  padding-bottom: 10px;
+`;
+
+export const SectionMore = styled.div`
+  font-size: 14px;
+  color: #5e5e5e;
 `;
 
 export const ContentsList = styled.ul`
