@@ -1,21 +1,5 @@
 import styled from "styled-components";
 
-export const MainTitleHeader = styled.header`
-  background-color: #9fc088;
-  padding: 25px;
-`;
-
-export const MainTitleDiv = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
-export const LogoDiv = styled.div`
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-`;
-
 export const Main = styled.main`
   padding: 50px 0;
 `;

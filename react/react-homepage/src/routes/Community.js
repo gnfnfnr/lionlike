@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Outlet, useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const CommunityBox = styled.div`
@@ -35,8 +35,7 @@ const CommunityPost = styled.li`
   display: flex;
   justify-content: space-between;
   &:hover {
-    color: yellow;
-    box-shadow: 1px 3px 5px 0px #cccbd3;
+    box-shadow: 1px 3px 5px 0px #63665b;
   }
 `;
 
@@ -52,11 +51,21 @@ const CommunityPostRepl = styled.div`
 const PageNumber = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
+`;
+
+const CurrentPage = styled.div`
+  font-size: 14px;
+  padding-left: 10px;
+  color: #6a6a6a;
 `;
 
 const PageNumberDiv = styled.div`
   padding: 10px;
   cursor: pointer;
+  &:visited {
+    color: red;
+  }
 `;
 
 function Community({ apiUrl }) {
@@ -104,14 +113,16 @@ function Community({ apiUrl }) {
           return (
             <PageNumberDiv
               key={num}
-              onClick={() => {
+              onClick={(event) => {
                 setPage(num);
+                console.dir(event);
               }}
             >
               {num}
             </PageNumberDiv>
           );
         })}
+        <CurrentPage>{`${page} / ${pages[pages.length - 1]}`}</CurrentPage>
       </PageNumber>
       {/* <div className={styles.arrow__button}>
         <button

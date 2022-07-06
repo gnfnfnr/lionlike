@@ -16,7 +16,7 @@ import {
   CommunityPostRepl,
   CommunityPostTitle,
 } from "./styledComponents";
-import recommendData from "./data.js";
+import recommendData from "../data.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
