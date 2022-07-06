@@ -43,6 +43,12 @@ export const SectionTitle = styled.div`
 export const SectionMore = styled.div`
   font-size: 14px;
   color: #5e5e5e;
+  cursor: pointer;
+  &:hover {
+    color: #666c61;
+    font-size: 16px;
+    font-weight: bold;
+  }
 `;
 
 export const ContentsList = styled.ul`

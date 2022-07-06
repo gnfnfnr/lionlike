@@ -19,15 +19,24 @@ import {
 import recommendData from "./data.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
+  const onClickToon = () => {
+    navigate("/more");
+  };
+
+  const onClickCommunity = () => {
+    navigate("/community");
+  };
   return (
     <>
       <Section>
         <SectionContainer>
           <SectionTop>
             <SectionTitle>웹툰</SectionTitle>
-            <SectionMore>
+            <SectionMore onClick={onClickToon}>
               더보기
               <FontAwesomeIcon icon={faArrowRight} />
             </SectionMore>
@@ -45,7 +54,13 @@ function Home() {
       </Section>
       <Section>
         <SectionContainer>
-          <SectionTitle>커뮤니티</SectionTitle>
+          <SectionTop>
+            <SectionTitle>커뮤니티</SectionTitle>
+            <SectionMore onClick={onClickCommunity}>
+              더보기
+              <FontAwesomeIcon icon={faArrowRight} />
+            </SectionMore>
+          </SectionTop>
           <CommunityDiv>
             <CommunityPost>
               <CommunityPostTitle>1화 대박</CommunityPostTitle>

@@ -25,7 +25,7 @@ const DetailPostLi = styled.li`
   background-color: #597346;
   width: 300px;
   padding: 40px;
-  margin-bottom: 40px;
+  margin: 0 20px 40px;
 `;
 
 const PostInfo = styled.div`
