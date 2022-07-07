@@ -10,7 +10,7 @@ import marriageW from "../img/marriageW.jpg";
 import orvW from "../img/orvW.jpg";
 import deathW from "../img/deathW.jpg";
 const DetailBox = styled.div`
-  background-color: #e0e6cc;
+  background-color: ${(props) => props.theme.boardBgColor};
   width: 80vw;
   margin: 0 auto;
   min-height: 400px;
@@ -24,7 +24,7 @@ const DetailPostList = styled.ul`
 `;
 
 const DetailPostLi = styled.li`
-  background-color: #597346;
+  background-color: ${(props) => props.theme.sctionBgColor};
   width: 300px;
   padding: 40px;
   margin: 0 20px 40px;

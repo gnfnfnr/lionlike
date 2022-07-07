@@ -6,7 +6,7 @@ import styled from "styled-components";
 const CommunityBox = styled.div`
   width: 80vw;
   margin: 0 auto;
-  background-color: #e0e6cc;
+  background-color: ${(props) => props.theme.boardBgColor};
   padding: 40px;
 `;
 
@@ -14,7 +14,7 @@ const CommunityTitle = styled.div`
   font-weight: bold;
   font-size: 24px;
   padding-bottom: 10px;
-  border-bottom: 2px solid #9fc088;
+  border-bottom: 2px solid ${(props) => props.theme.headBgColor};
   margin-bottom: 20px;
 `;
 
@@ -22,9 +22,9 @@ const CommunitySort = styled.div`
   font-weight: bold;
   font-size: 18px;
   padding: 0 20px 10px;
-  border-bottom: 2px solid #9fc08861;
+  border-bottom: 2px solid ${(props) => props.theme.cmBorder};
   margin-bottom: 20px;
-  color: #3f6820;
+  color: ${(props) => props.theme.cmFontColor};
 `;
 
 const CommunityPost = styled.li`

@@ -32,9 +32,9 @@ export const SectionMore = styled.div`
 `;
 
 export const ContentsList = styled.ul`
-  background-color: #597346;
+  background-color: ${(props) => props.theme.sctionBgColor};
   margin-top: 25px;
-  box-shadow: 6px 8px 5px 0px #35402d;
+  box-shadow: 6px 8px 5px 0px ${(props) => props.theme.shadow};
   display: flex;
   justify-content: center;
 `;
@@ -61,7 +61,7 @@ export const Img = styled.img`
 
 export const CommunityDiv = styled.div`
   padding: 25px;
-  background-color: #597346;
+  background-color: ${(props) => props.theme.sctionBgColor};
   margin-top: 25px;
 `;
 

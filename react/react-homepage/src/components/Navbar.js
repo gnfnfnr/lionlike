@@ -11,10 +11,10 @@ const Navlist = styled.ul`
   height: 100%;
 `;
 
-function Navbar() {
+function Navbar({ darkMode }) {
   const activeStyle = {
     textDecoration: "none",
-    color: "#3f6820",
+    color: darkMode ? "#574c68" : "#3f6820",
     width: "25%",
     textAlign: "center",
     padding: "12px",
@@ -23,14 +23,13 @@ function Navbar() {
   };
 
   const nonActiveStyle = {
-    backgroundColor: "#9fc088",
+    backgroundColor: darkMode ? "#9F94B0" : "#9fc088",
     textDecoration: "none",
     color: "black",
     width: "33.3333%",
     fontWeight: "bold",
     textAlign: "center",
     padding: "12px",
-    ":hover": { color: "red" },
   };
 
   return (

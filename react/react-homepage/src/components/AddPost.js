@@ -59,7 +59,7 @@ const FormDiv = styled.div`
 const Input = styled.input`
   outline: none;
   padding: 5px 2px;
-  border: 1px solid #597346;
+  border: 1px solid ${(props) => props.theme.sctionBgColor};
 `;
 
 function AddPost({ onClick, result, setMoveAddPost, dataCount }) {

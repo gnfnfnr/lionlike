@@ -21,7 +21,7 @@ function App() {
       <BrowserRouter>
         <GlobalStyle />
         <Header darkMode={darkMode} setDarkMode={setDarkMode} />
-        <Navbar />
+        <Navbar darkMode={darkMode} />
         <main style={{ padding: "50px 0" }}>
           <Routes>
             <Route path={"/"} element={<Home apiUrl={API_URL} />}></Route>
@@ -42,7 +42,7 @@ function App() {
             <Route path="/*" element={<h1>존재하지 않는 페이지입니다.</h1>} />
           </Routes>
         </main>
-        <Footer />
+        <Footer darkMode={darkMode} />
       </BrowserRouter>
     </ThemeProvider>
   );

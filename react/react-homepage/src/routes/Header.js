@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const MainTitleHeader = styled.header`
-  background-color: #9fc088;
+  background-color: ${(props) => props.theme.headBgColor};
   padding: 25px;
 `;
 
@@ -44,7 +44,11 @@ function Header({ darkMode, setDarkMode }) {
         <FontAwesomeIcon
           icon={faPaintBrush}
           size="2x"
-          style={darkMode ? { color: "red" } : { color: "yellow" }}
+          style={
+            darkMode
+              ? { color: "9fc088", cursor: "pointer" }
+              : { color: "#9F94B0", cursor: "pointer" }
+          }
           onClick={toggleMode}
         />
       </MainTitleDiv>
