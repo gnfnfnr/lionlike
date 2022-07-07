@@ -110,19 +110,38 @@ function AddPost({ onClick, result, setMoveAddPost, dataCount }) {
             type="text"
             name="title"
             ref={titleInput}
+            placeholder="제목을 입력해주세요"
           />
         </LabelAndInput>
         <LabelAndInput>
           <InputLabel htmlFor="author">작가</InputLabel>
-          <Input onChange={onChange} id="author" type="text" name="author" />
+          <Input
+            onChange={onChange}
+            id="author"
+            type="text"
+            name="author"
+            placeholder="작가명을 입력해주세요"
+          />
         </LabelAndInput>
         <LabelAndInput>
           <InputLabel htmlFor="review">후기</InputLabel>
-          <Input onChange={onChange} id="review" type="text" name="reivew" />
+          <Input
+            onChange={onChange}
+            id="review"
+            type="text"
+            name="review"
+            placeholder="후기를 입력해주세요"
+          />
         </LabelAndInput>
         <LabelAndInput>
           <InputLabel htmlFor="url">사이트 주소</InputLabel>
-          <Input type="url" onChange={onChange} id="url" name="url" />
+          <Input
+            type="url"
+            onChange={onChange}
+            id="url"
+            name="url"
+            placeholder="http 시작하는 주소를 입력"
+          />
         </LabelAndInput>
         <LabelAndInput>
           <InputLabel htmlFor="imageFile">이미지 파일 선택</InputLabel>
