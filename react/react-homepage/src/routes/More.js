@@ -1,14 +1,13 @@
-import { React, useEffect } from "react";
+import { React } from "react";
 import styled from "styled-components";
 import recommendData from "../data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
-import { Outlet } from "react-router-dom";
-import { Link } from "react-router-dom";
 import AddPost from "../components/AddPost";
+
 const DetailBox = styled.div`
-  background-color: white;
+  background-color: #e0e6cc;
   width: 80vw;
   margin: 0 auto;
   min-height: 400px;
@@ -42,24 +41,26 @@ const PostImg = styled.img`
   height: 420px;
   object-fit: cover;
   margin-bottom: 25px;
-}
 `;
+
 const PostTitle = styled.div`
   font-size: 20px;
   font-weight: bold;
 `;
+
 const PostAuthor = styled.div`
   font-size: 18px;
   color: #c1c1c1;
   padding: 10px 0;
 `;
+
 const PostReview = styled.div`
   height: 150px;
   max-height: 150px;
   overflow-y: auto;
   line-height: 1.2;
 `;
-const PostUrl = styled.div``;
+
 const PostPlus = styled.div`
   height: 675px;
   background-color: #f0f8ff2b;
@@ -87,8 +88,8 @@ function More() {
         <DetailPostList>
           {/* 포스트 보여주기 */}
           {recommendData.map((web) => (
-            <PostUrlLink href={web.url}>
-              <DetailPostLi>
+            <DetailPostLi>
+              <PostUrlLink href={web.url} target="_blank">
                 <PostImg
                   src={
                     web.img
@@ -96,25 +97,25 @@ function More() {
                       : require("../img/error.jpg")
                   }
                 />
-                <PostInfo>
-                  <PostTitle>{web.title}</PostTitle>
-                  <PostAuthor>{web.author}</PostAuthor>
-                  <PostReview>{web.review}</PostReview>
-                </PostInfo>
-              </DetailPostLi>
-            </PostUrlLink>
+              </PostUrlLink>
+              <PostInfo>
+                <PostTitle>{web.title}</PostTitle>
+                <PostAuthor>{web.author}</PostAuthor>
+                <PostReview>{web.review}</PostReview>
+              </PostInfo>
+            </DetailPostLi>
           ))}
           {result.map((web) => (
-            <PostUrlLink href={web.url}>
-              <DetailPostLi>
+            <DetailPostLi>
+              <PostUrlLink href={web.url} target="_blank">
                 <PostImg src={web.img} />
-                <PostInfo>
-                  <PostTitle>{web.title}</PostTitle>
-                  <PostAuthor>{web.author}</PostAuthor>
-                  <PostReview>{web.review}</PostReview>
-                </PostInfo>
-              </DetailPostLi>
-            </PostUrlLink>
+              </PostUrlLink>
+              <PostInfo>
+                <PostTitle>{web.title}</PostTitle>
+                <PostAuthor>{web.author}</PostAuthor>
+                <PostReview>{web.review}</PostReview>
+              </PostInfo>
+            </DetailPostLi>
           ))}
           {/* 포스트 추가 영역 */}
           <DetailPostLi>
@@ -132,7 +133,6 @@ function More() {
           </DetailPostLi>
         </DetailPostList>
       </DetailBox>
-      <Outlet />
     </>
   );
 }

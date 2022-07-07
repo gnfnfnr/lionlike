@@ -1,25 +1,65 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 const Nav = styled.nav`
   height: 40px;
-  border-bottom: 2px solid black;
 `;
 
 const Navlist = styled.ul`
   display: flex;
-  justify-content: space-around;
   align-items: center;
   height: 100%;
 `;
 
-function Navbar(props) {
+function Navbar() {
+  const activeStyle = {
+    textDecoration: "none",
+    color: "#3f6820",
+    width: "25%",
+    textAlign: "center",
+    padding: "12px",
+    fontWeight: "bold",
+    fontSize: "18px",
+  };
+
+  const nonActiveStyle = {
+    backgroundColor: "#9fc088",
+    textDecoration: "none",
+    color: "black",
+    width: "25%",
+    fontWeight: "bold",
+    textAlign: "center",
+    padding: "12px",
+    ":hover": { color: "red" },
+  };
+
   return (
     <Nav>
       <Navlist>
-        <li>Home</li>
-        <li>웹툰</li>
-        <li>커뮤니티</li>
-        <li>마이페이지</li>
+        <NavLink
+          to={"/"}
+          style={({ isActive }) => (isActive ? activeStyle : nonActiveStyle)}
+        >
+          <li>Home</li>
+        </NavLink>
+        <NavLink
+          to={"/more"}
+          style={({ isActive }) => (isActive ? activeStyle : nonActiveStyle)}
+        >
+          <li>웹툰</li>
+        </NavLink>
+        <NavLink
+          to={"/community"}
+          style={({ isActive }) => (isActive ? activeStyle : nonActiveStyle)}
+        >
+          <li>커뮤니티</li>
+        </NavLink>
+        <NavLink
+          to={"/profile"}
+          style={({ isActive }) => (isActive ? activeStyle : nonActiveStyle)}
+        >
+          <li>마이페이지</li>
+        </NavLink>
       </Navlist>
     </Nav>
   );

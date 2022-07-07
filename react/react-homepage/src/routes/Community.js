@@ -31,7 +31,7 @@ const CommunityPost = styled.li`
   cursor: pointer;
   border: 1px solid #c1c1c1;
   margin-bottom: 20px;
-  padding: 20px 30px;
+  padding: 18px 30px;
   display: flex;
   justify-content: space-between;
   &:hover {
@@ -63,16 +63,29 @@ const CurrentPage = styled.div`
 const PageNumberDiv = styled.div`
   padding: 10px;
   cursor: pointer;
-  &:visited {
+  &:hover {
     color: red;
   }
 `;
 
-function Community({ apiUrl }) {
+const PostBtn = styled.div`
+  float: right;
+  padding: 12px;
+  background-color: #964b00;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+`;
+
+const Community = function Community({ apiUrl }) {
   const navigator = useNavigate();
   const onClick = (event) => {
     navigator(`/community/post${event.target.id}`);
   };
+  const onClickWrite = () => {
+    navigator("/community/addpost");
+  };
+
   const [pages, setPages] = useState([]);
   const [page, setPage] = useState(1);
   const [postList, setPostList] = useState([]);
@@ -138,8 +151,9 @@ function Community({ apiUrl }) {
           <FontAwesomeIcon icon={faCircleChevronRight} size="2x" />
         </button>
       </div> */}
+      <PostBtn onClick={onClickWrite}>글쓰기</PostBtn>
     </CommunityBox>
   );
-}
+};
 
 export default Community;
