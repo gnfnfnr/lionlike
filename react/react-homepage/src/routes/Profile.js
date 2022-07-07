@@ -114,7 +114,7 @@ function Profile() {
               style={{ fontSize: "200px", marginBottom: "30px" }}
             />
             {profileData.map((detail) => (
-              <ProfileDetail>
+              <ProfileDetail key={detail.id}>
                 <ProfileTitle>{detail.titleKr}</ProfileTitle>
                 <Profilecontent>{detail.content}</Profilecontent>
               </ProfileDetail>

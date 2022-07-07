@@ -1,6 +1,9 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faBookBookmark } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPaintBrush,
+  faBookBookmark,
+} from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
@@ -20,10 +23,13 @@ const LogoDiv = styled.div`
   cursor: pointer;
 `;
 
-function Header() {
+function Header({ darkMode, setDarkMode }) {
   const navigate = useNavigate();
   const clickHome = () => {
     navigate(`${process.env.PUBLIC_URL}/`);
+  };
+  const toggleMode = () => {
+    setDarkMode(!darkMode);
   };
   return (
     <MainTitleHeader>
@@ -33,12 +39,17 @@ function Header() {
             icon={faBookBookmark}
             style={{ paddingRight: "10px" }}
           />
-          MoWeB
+          MoToon
         </LogoDiv>
-        <FontAwesomeIcon icon={faBars} size="2x" />
+        <FontAwesomeIcon
+          icon={faPaintBrush}
+          size="2x"
+          style={darkMode ? { color: "red" } : { color: "yellow" }}
+          onClick={toggleMode}
+        />
       </MainTitleDiv>
     </MainTitleHeader>
   );
 }
 
-export default Header;
+export default React.memo(Header);

@@ -50,13 +50,13 @@ export const EachPostTitle = styled.div`
 `;
 
 export const EachPostAuthor = styled.div`
-  color: #clclcl;
+  color: #363636;
 `;
 
 export const Img = styled.img`
   width: 200px;
   height: 280px;
-  object-fit: cover;
+  object-fit: contain;
 `;
 
 export const CommunityDiv = styled.div`

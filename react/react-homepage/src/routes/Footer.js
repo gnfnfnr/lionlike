@@ -11,10 +11,10 @@ function Footer() {
         size="3x"
         style={{ color: "#9fc088" }}
       />
-      <FooterAbout>웹툰, 웹소설에 대한 모아 보기</FooterAbout>
+      <FooterAbout>웹툰 모아 보기</FooterAbout>
       <FooterMade>copyright: yeon</FooterMade>
     </FooterInfo>
   );
 }
 
-export default Footer;
+export default React.memo(Footer);

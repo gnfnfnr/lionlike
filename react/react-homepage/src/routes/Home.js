@@ -37,6 +37,7 @@ function Home({ apiUrl }) {
       setFirstPage(response.data.results);
     });
   };
+
   useEffect(getPostApi, []);
   return (
     <>
@@ -51,8 +52,8 @@ function Home({ apiUrl }) {
           </SectionTop>
           <ContentsList>
             {recommendData.map((web) => (
-              <EachPostLi key={web.idx}>
-                <Img src={require(`../img/${web.img}.jpg`)} />
+              <EachPostLi key={web.id}>
+                <Img src={web.img} />
                 <EachPostTitle>{web.title}</EachPostTitle>
                 <EachPostAuthor>{web.author}</EachPostAuthor>
               </EachPostLi>
