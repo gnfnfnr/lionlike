@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
@@ -72,6 +72,19 @@ function Profile() {
   const [lat, setLat] = useState(0);
   const [lng, setLng] = useState(0);
 
+  const profileData = [
+    { id: 1, title: "name", titleKr: "이름", content: "하이루" },
+    {
+      id: 2,
+      title: "genre",
+      titleKr: "즐겨보는 장르",
+      content: "판타지, 스포츠",
+    },
+    { id: 3, title: "city", titleKr: "거주지역", content: city },
+    { id: 4, title: "temp", titleKr: "온도", content: `${temp} 도` },
+    { id: 5, title: "hummity", titleKr: "습도", content: `${humdity} %` },
+  ];
+
   navigator.geolocation.getCurrentPosition(function (position) {
     setLat(position.coords.latitude);
     setLng(position.coords.longitude);
@@ -100,26 +113,12 @@ function Profile() {
               icon={faUser}
               style={{ fontSize: "200px", marginBottom: "30px" }}
             />
-            <ProfileDetail>
-              <ProfileTitle>이름:</ProfileTitle>
-              <Profilecontent>하이하이루</Profilecontent>
-            </ProfileDetail>
-            <ProfileDetail>
-              <ProfileTitle>좋아하는 장르:</ProfileTitle>
-              <Profilecontent>판타지, 스포츠</Profilecontent>
-            </ProfileDetail>
-            <ProfileDetail>
-              <ProfileTitle>거주지역:</ProfileTitle>
-              <Profilecontent>{city}</Profilecontent>
-            </ProfileDetail>
-            <ProfileDetail>
-              <ProfileTitle>온도:</ProfileTitle>
-              <Profilecontent>{temp}도</Profilecontent>
-            </ProfileDetail>
-            <ProfileDetail>
-              <ProfileTitle>습도:</ProfileTitle>
-              <Profilecontent>{humdity}%</Profilecontent>
-            </ProfileDetail>
+            {profileData.map((detail) => (
+              <ProfileDetail>
+                <ProfileTitle>{detail.titleKr}</ProfileTitle>
+                <Profilecontent>{detail.content}</Profilecontent>
+              </ProfileDetail>
+            ))}
             <ProfileDetail>
               <ProfileComment>*오늘은 책 읽기 적절한 날*</ProfileComment>
             </ProfileDetail>

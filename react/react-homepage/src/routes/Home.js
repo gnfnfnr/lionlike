@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
-  Main,
   Img,
   Section,
   SectionTop,
@@ -20,8 +19,10 @@ import recommendData from "../data.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-function Home() {
+function Home({ apiUrl }) {
+  const [firstPage, setFirstPage] = useState([]);
   const navigate = useNavigate();
   const onClickToon = () => {
     navigate("/more");
@@ -30,6 +31,13 @@ function Home() {
   const onClickCommunity = () => {
     navigate("/community");
   };
+
+  const getPostApi = () => {
+    axios.get(`${apiUrl}list/?page=1&page_size=5`).then((response) => {
+      setFirstPage(response.data.results);
+    });
+  };
+  useEffect(getPostApi, []);
   return (
     <>
       <Section>
@@ -43,7 +51,7 @@ function Home() {
           </SectionTop>
           <ContentsList>
             {recommendData.map((web) => (
-              <EachPostLi>
+              <EachPostLi key={web.idx}>
                 <Img src={require(`../img/${web.img}.jpg`)} />
                 <EachPostTitle>{web.title}</EachPostTitle>
                 <EachPostAuthor>{web.author}</EachPostAuthor>
@@ -62,14 +70,12 @@ function Home() {
             </SectionMore>
           </SectionTop>
           <CommunityDiv>
-            <CommunityPost>
-              <CommunityPostTitle>1화 대박</CommunityPostTitle>
-              <CommunityPostRepl>댓글 2개</CommunityPostRepl>
-            </CommunityPost>
-            <CommunityPost>
-              <CommunityPostTitle>왜 연재중이냐</CommunityPostTitle>
-              <CommunityPostRepl>댓글 1개</CommunityPostRepl>
-            </CommunityPost>
+            {firstPage.map((data) => (
+              <CommunityPost key={data.id}>
+                <CommunityPostTitle>{data.title}</CommunityPostTitle>
+                <CommunityPostRepl>댓글 2개</CommunityPostRepl>
+              </CommunityPost>
+            ))}
           </CommunityDiv>
         </SectionContainer>
       </Section>

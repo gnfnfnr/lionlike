@@ -21,7 +21,7 @@ const AddPostDiv = styled.div`
 const AddImg = styled.img`
   width: 200px;
   height: 320px;
-  object-fit: cover;
+  object-fit: contain;
 `;
 
 const SelectImg = styled.div`
@@ -62,7 +62,7 @@ const Input = styled.input`
   border: 1px solid #597346;
 `;
 
-function AddPost({ onClick, result, setMoveAddPost }) {
+function AddPost({ onClick, result, setMoveAddPost, dataCount }) {
   const titleInput = useRef();
   useEffect(() => {
     titleInput.current.focus();
@@ -70,6 +70,7 @@ function AddPost({ onClick, result, setMoveAddPost }) {
 
   const [fileImage, setFileImage] = useState();
   const [inputs, setInputs] = useState({
+    id: dataCount,
     img: "",
     title: "",
     author: "",

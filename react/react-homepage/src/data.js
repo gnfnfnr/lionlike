@@ -2,7 +2,7 @@ const recommendData = [
   {
     id: 1,
     title: "화산귀환",
-    img: "mountW",
+    img: "https://comicthumb-phinf.pstatic.net/20210730_276/pocket_1627613694939781YL_JPEG/_%284%29.jpg?type=m260",
     novel: "mountN",
     author: "비가",
     review:
@@ -12,7 +12,7 @@ const recommendData = [
   {
     id: 2,
     title: "재혼황후",
-    img: "marriageW",
+    img: "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA5MjNfMjY5%2FMDAxNjMyMzMyMzE1NjE5.Ycq3ORDKjcpIpgk_84NF3f5GbEkylTrch_g0O6GDlKQg.jFy3KZA6BrCcBQDyOiAo9kqQ_7tWabO6d8LpTIKqDUog.JPEG.duswl4545%2FkakaoWebtoon20210923%25A3%25DF004315.jpg&type=a340",
     novel: "marriageN",
     author: "작가이름",
     review:
@@ -22,7 +22,7 @@ const recommendData = [
   {
     id: 3,
     title: "전지적 독자 시점",
-    img: "orvW",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxAionyF0wy2VkSDCJq-Sn80Xn46kGQK_q3g&usqp=CAU",
     novel: "orvN",
     author: "작가이름",
     review:
@@ -32,7 +32,7 @@ const recommendData = [
   {
     id: 4,
     title: "악역의 엔딩은 죽음뿐",
-    img: "deathW",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl1QvpDl69cfMhcyMwhBcsKEXtwYLCnVS2sw&usqp=CAU",
     novel: "deathN",
     author: "작가이름",
     review:

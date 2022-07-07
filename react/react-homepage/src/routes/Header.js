@@ -33,7 +33,7 @@ function Header() {
             icon={faBookBookmark}
             style={{ paddingRight: "10px" }}
           />
-          WebN
+          MoWeB
         </LogoDiv>
         <FontAwesomeIcon icon={faBars} size="2x" />
       </MainTitleDiv>

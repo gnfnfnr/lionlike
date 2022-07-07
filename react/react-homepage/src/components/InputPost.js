@@ -2,42 +2,33 @@ import React, { useRef } from "react";
 import { useEffect } from "react";
 import styled from "styled-components";
 
-const InputPost = styled.div``;
+const InputBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  margin: 0 auto;
+`;
 
 const TitleInput = styled.input`
   margin: 20px 15px 0;
   height: 30px;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid #e7e9e2;
+  padding: 10px;
 `;
 
 const ContentsInput = styled.textarea`
   margin: 20px 15px 0;
   padding: 10px;
-  border-radius: 5px;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid #e7e9e2;
+  min-height: 300px;
+  font-size: 18px;
 `;
 
-export const PostSubmitDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 20px;
-`;
-
-export const PostSubmit = styled.button`
-  height: 40px;
-  width: 100px;
-  background: orange;
-  border: none;
-  border-radius: 20px;
-  box-shadow: 2px 2px 3px 1px #ab9982;
-  cursor: pointer;
-`;
-
-const SubmitComponent = React.memo(({ onSubmit }) => (
-  <PostSubmitDiv>
-    <PostSubmit onClick={onSubmit}>작성완료</PostSubmit>
-  </PostSubmitDiv>
-));
-
-function AddCommunityPost({ title, onChange, contents }) {
+function InputPost({ title, onChange, contents }) {
   const titleInput = useRef();
   const contentsInput = useRef();
   useEffect(() => {
@@ -50,7 +41,7 @@ function AddCommunityPost({ title, onChange, contents }) {
   };
 
   return (
-    <InputPost>
+    <InputBox>
       <TitleInput
         name="title"
         value={title}
@@ -68,9 +59,8 @@ function AddCommunityPost({ title, onChange, contents }) {
         placeholder="내용을 입력해주세요"
         ref={contentsInput}
       ></ContentsInput>
-      <SubmitComponent></SubmitComponent>
-    </InputPost>
+    </InputBox>
   );
 }
 
-export default AddCommunityPost;
+export default InputPost;

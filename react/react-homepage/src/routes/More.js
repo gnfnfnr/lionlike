@@ -5,7 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import AddPost from "../components/AddPost";
-
+import mountW from "../img/mountW.jpg";
+import marriageW from "../img/marriageW.jpg";
+import orvW from "../img/orvW.jpg";
+import deathW from "../img/deathW.jpg";
 const DetailBox = styled.div`
   background-color: #e0e6cc;
   width: 80vw;
@@ -39,7 +42,7 @@ const PostInfo = styled.div`
 const PostImg = styled.img`
   width: 300px;
   height: 420px;
-  object-fit: cover;
+  object-fit: contain;
   margin-bottom: 25px;
 `;
 
@@ -76,37 +79,20 @@ const PostUrlLink = styled.a`
 
 function More() {
   const [moveAddPost, setMoveAddPost] = useState(false);
-  const [result, setResult] = useState([]);
+  const [result, setResult] = useState([...recommendData]);
+  const dataCount = result.length + 1;
 
   const onClick = () => {
     setMoveAddPost(!moveAddPost);
   };
-  console.log(result);
+
   return (
     <>
       <DetailBox>
         <DetailPostList>
           {/* 포스트 보여주기 */}
-          {recommendData.map((web) => (
-            <DetailPostLi>
-              <PostUrlLink href={web.url} target="_blank">
-                <PostImg
-                  src={
-                    web.img
-                      ? require(`../img/${web.img}.jpg`)
-                      : require("../img/error.jpg")
-                  }
-                />
-              </PostUrlLink>
-              <PostInfo>
-                <PostTitle>{web.title}</PostTitle>
-                <PostAuthor>{web.author}</PostAuthor>
-                <PostReview>{web.review}</PostReview>
-              </PostInfo>
-            </DetailPostLi>
-          ))}
           {result.map((web) => (
-            <DetailPostLi>
+            <DetailPostLi key={web.id}>
               <PostUrlLink href={web.url} target="_blank">
                 <PostImg src={web.img} />
               </PostUrlLink>
@@ -124,6 +110,7 @@ function More() {
                 onClick={onClick}
                 result={result}
                 setMoveAddPost={setMoveAddPost}
+                dataCount={dataCount}
               />
             ) : (
               <PostPlus onClick={onClick}>

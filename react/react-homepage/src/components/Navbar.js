@@ -26,7 +26,7 @@ function Navbar() {
     backgroundColor: "#9fc088",
     textDecoration: "none",
     color: "black",
-    width: "25%",
+    width: "33.3333%",
     fontWeight: "bold",
     textAlign: "center",
     padding: "12px",
@@ -36,12 +36,6 @@ function Navbar() {
   return (
     <Nav>
       <Navlist>
-        <NavLink
-          to={"/"}
-          style={({ isActive }) => (isActive ? activeStyle : nonActiveStyle)}
-        >
-          <li>Home</li>
-        </NavLink>
         <NavLink
           to={"/more"}
           style={({ isActive }) => (isActive ? activeStyle : nonActiveStyle)}

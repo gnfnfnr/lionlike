@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-export const Main = styled.main`
-  padding: 50px 0;
-`;
-
 export const Section = styled.section``;
 
 export const SectionContainer = styled.div`
@@ -77,8 +73,8 @@ export const CommunityPost = styled.div`
   display: flex;
   justify-content: space-between;
   &:hover {
-    color: yellow;
-    box-shadow: 1px 3px 5px 0px #cccbd3;
+    box-shadow: 1px 3px 5px 0px #455936;
+    transform: scale(1.02);
   }
 `;
 

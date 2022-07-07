@@ -108,7 +108,7 @@ const Community = function Community({ apiUrl }) {
       <CommunityTitle>커뮤니티</CommunityTitle>
       <CommunitySort>최신순</CommunitySort>
       {loading ? (
-        <div>로딩중ㅇ이다</div>
+        <div>로딩중</div>
       ) : (
         <ul>
           {postList.map((li) => {

@@ -11,7 +11,7 @@ function Footer() {
         size="3x"
         style={{ color: "#9fc088" }}
       />
-      <FooterAbout>웹툰, 웹소설에 대한 모든 것</FooterAbout>
+      <FooterAbout>웹툰, 웹소설에 대한 모아 보기</FooterAbout>
       <FooterMade>copyright: yeon</FooterMade>
     </FooterInfo>
   );
