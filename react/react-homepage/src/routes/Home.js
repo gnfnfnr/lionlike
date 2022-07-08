@@ -18,8 +18,9 @@ import {
 import recommendData from "../data.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight, faN } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import axios from "axios";
+import HomePost from "../components/HomePost";
 
 function Home({ apiUrl }) {
   const [firstPage, setFirstPage] = useState([]);
@@ -37,6 +38,7 @@ function Home({ apiUrl }) {
       setFirstPage(response.data.results);
     });
   };
+  const [showInfo, setShowInfo] = useState(false);
 
   useEffect(getPostApi, []);
   return (
@@ -52,13 +54,15 @@ function Home({ apiUrl }) {
           </SectionTop>
           <ContentsList>
             {recommendData.map((web) => (
-              <EachPostLi key={web.id}>
-                <Img src={web.img} />
-                <EachPostTitle>{web.title}</EachPostTitle>
-                <EachPostAuthor>{web.author}</EachPostAuthor>
-              </EachPostLi>
+              <HomePost
+                web={web}
+                key={web.id}
+                showInfo={showInfo}
+                setShowInfo={setShowInfo}
+              />
             ))}
           </ContentsList>
+          <Outlet />
         </SectionContainer>
       </Section>
       <Section>

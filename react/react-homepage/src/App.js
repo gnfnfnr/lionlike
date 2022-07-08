@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import EachPost from "./routes/EachPost";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
+import BestPost from "./routes/BestPost";
 
 function App() {
   const API_URL = "https://reactapitest.pythonanywhere.com/api/";
@@ -34,7 +35,9 @@ function App() {
               path={"/"}
               element={<Login login={login} setLogin={setLogin} />}
             ></Route>
-            <Route path={"/Home"} element={<Home apiUrl={API_URL} />}></Route>
+            <Route path={"/home"} element={<Home apiUrl={API_URL} />}>
+              <Route path={"/home/:id"} element={<BestPost />}></Route>
+            </Route>
             <Route path={"/more"} element={<More />}></Route>
             <Route
               path={"/community"}

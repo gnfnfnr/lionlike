@@ -38,3 +38,11 @@ const recommendData = [
 ];
 
 export default recommendData;
+
+export function getToons() {
+  return recommendData;
+}
+
+export function getToon(id) {
+  return recommendData.find((toon) => toon.id === id);
+}

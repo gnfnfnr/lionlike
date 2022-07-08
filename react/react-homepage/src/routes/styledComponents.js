@@ -41,6 +41,7 @@ export const ContentsList = styled.ul`
 
 export const EachPostLi = styled.li`
   margin: 20px;
+  cursor: pointer;
 `;
 
 export const EachPostTitle = styled.div`
