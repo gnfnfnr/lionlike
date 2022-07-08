@@ -12,12 +12,12 @@ import {
   EachPostLi,
   EachPostTitle,
   EachPostAuthor,
-  CommunityPostRepl,
+  CommunityNew,
   CommunityPostTitle,
 } from "./styledComponents";
 import recommendData from "../data.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faN } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -42,7 +42,7 @@ function Home({ apiUrl }) {
   return (
     <>
       <Section>
-        <SectionContainer>
+        <SectionContainer style={{ paddingTop: "0" }}>
           <SectionTop>
             <SectionTitle>웹툰</SectionTitle>
             <SectionMore onClick={onClickToon}>
@@ -74,7 +74,9 @@ function Home({ apiUrl }) {
             {firstPage.map((data) => (
               <CommunityPost key={data.id}>
                 <CommunityPostTitle>{data.title}</CommunityPostTitle>
-                <CommunityPostRepl>댓글 2개</CommunityPostRepl>
+                <CommunityNew>
+                  <FontAwesomeIcon icon={faN} />
+                </CommunityNew>
               </CommunityPost>
             ))}
           </CommunityDiv>

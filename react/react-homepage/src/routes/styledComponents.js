@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Section = styled.section``;
 
 export const SectionContainer = styled.div`
-  padding-top: 40px;
+  padding-top: 30px;
   width: 1000px;
   margin: 0 auto;
 `;
@@ -82,23 +82,8 @@ export const CommunityPostTitle = styled.div`
   font-weight: bold;
 `;
 
-export const CommunityPostRepl = styled.div`
+export const CommunityNew = styled.div`
   font-weight: bold;
   font-size: 12px;
-`;
-
-export const FooterInfo = styled.footer`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-export const FooterAbout = styled.div`
-  font-weight: bold;
-  font-size: 18px;
-  margin 10px 0;
-`;
-
-export const FooterMade = styled.div`
-  font-size: 14px;
+  color: #ff0000;
 `;

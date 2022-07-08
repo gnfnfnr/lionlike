@@ -5,7 +5,6 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 const BookFrontCover = styled.div`
-  width: 830px;
   height: 700px;
   margin: 0 auto;
   background: linear-gradient(217deg, #ad8787, rgba(255, 0, 0, 0) 70.71%),
@@ -19,10 +18,10 @@ const BookBehindCover = styled.div`
   background: linear-gradient(217deg, #4e4141, rgba(255, 0, 0, 0) 70.71%),
     linear-gradient(127deg, #1d3c26, rgba(0, 255, 0, 0) 70.71%),
     linear-gradient(336deg, #6c4d32, rgba(0, 0, 255, 0) 70.71%);
-  width: 800px;
-  height: 850px;
+  width: 750px;
+  height: 800px;
   border-radius: 20% 5% 5% 10%;
-  margin: 64px auto 0;
+  margin: 0 auto;
 `;
 
 const ProfileInfo = styled.div`
@@ -44,6 +43,7 @@ const BoockInside = styled.div`
 `;
 
 const ProfileDetail = styled.div`
+  justify-content: space-between;
   margin: 10px 0;
   display: flex;
   width: 300px;

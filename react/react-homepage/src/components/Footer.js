@@ -1,7 +1,23 @@
 import React from "react";
-import { FooterInfo, FooterAbout, FooterMade } from "./styledComponents";
+import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookBookmark } from "@fortawesome/free-solid-svg-icons";
+
+const FooterInfo = styled.footer`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const FooterAbout = styled.div`
+  font-weight: bold;
+  font-size: 18px;
+  margin 10px 0;
+`;
+
+const FooterMade = styled.div`
+  font-size: 14px;
+`;
 
 function Footer({ darkMode }) {
   return (

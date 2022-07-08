@@ -2,12 +2,18 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faSquareCaretRight,
+  faSquareCaretLeft,
+} from "@fortawesome/free-solid-svg-icons";
 
 const CommunityBox = styled.div`
   width: 80vw;
   margin: 0 auto;
   background-color: ${(props) => props.theme.boardBgColor};
   padding: 40px;
+  height: 760px;
 `;
 
 const CommunityTitle = styled.div`
@@ -31,7 +37,7 @@ const CommunityPost = styled.li`
   cursor: pointer;
   border: 1px solid #c1c1c1;
   margin-bottom: 20px;
-  padding: 18px 30px;
+  padding: 12px 30px;
   display: flex;
   justify-content: space-between;
   &:hover {
@@ -56,7 +62,7 @@ const PageNumber = styled.div`
 
 const CurrentPage = styled.div`
   font-size: 14px;
-  padding-left: 10px;
+  padding: 0 10px;
   color: #6a6a6a;
 `;
 
@@ -77,6 +83,16 @@ const PostBtn = styled.div`
   cursor: pointer;
 `;
 
+const NextPageBtn = styled.button`
+  all: unset;
+  cursor: pointer;
+`;
+
+const PrevPageBtn = styled.button`
+  all: unset;
+  cursor: pointer;
+`;
+
 const Community = function Community({ apiUrl }) {
   const navigator = useNavigate();
   const onClick = (event) => {
@@ -90,6 +106,8 @@ const Community = function Community({ apiUrl }) {
   const [page, setPage] = useState(1);
   const [postList, setPostList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [hiddenRight, setHiddenRight] = useState(false);
+  const [hiddenLeft, setHiddenLeft] = useState(false);
   const getPostApi = () => {
     axios.get(`${apiUrl}list/?page=${page}&page_size=10`).then((response) => {
       const lastPages = Math.ceil(response.data.count / 10);
@@ -100,6 +118,16 @@ const Community = function Community({ apiUrl }) {
       setPages(tempages);
       setPostList(response.data.results);
       setLoading(false);
+      if (response.data.next === null) {
+        setHiddenRight(true);
+        setHiddenLeft(false);
+      } else if (response.data.previous === null) {
+        setHiddenLeft(true);
+        setHiddenRight(false);
+      } else {
+        setHiddenRight(false);
+        setHiddenLeft(false);
+      }
     });
   };
   useEffect(getPostApi, [page]);
@@ -122,13 +150,22 @@ const Community = function Community({ apiUrl }) {
         </ul>
       )}
       <PageNumber>
+        <PrevPageBtn
+          onClick={() => {
+            if (page > 1) {
+              setPage(page - 1);
+            }
+          }}
+          style={hiddenLeft ? { display: "none" } : { display: "block" }}
+        >
+          <FontAwesomeIcon icon={faSquareCaretLeft} size="2x" />
+        </PrevPageBtn>
         {pages.map((num) => {
           return (
             <PageNumberDiv
               key={num}
-              onClick={(event) => {
+              onClick={() => {
                 setPage(num);
-                console.dir(event);
               }}
             >
               {num}
@@ -136,21 +173,17 @@ const Community = function Community({ apiUrl }) {
           );
         })}
         <CurrentPage>{`${page} / ${pages[pages.length - 1]}`}</CurrentPage>
+        <NextPageBtn
+          onClick={() => {
+            if (pages.length > page) {
+              setPage(page + 1);
+            }
+          }}
+          style={hiddenRight ? { display: "none" } : { display: "block" }}
+        >
+          <FontAwesomeIcon icon={faSquareCaretRight} size="2x" />
+        </NextPageBtn>
       </PageNumber>
-      {/* <div className={styles.arrow__button}>
-        <button
-          className={trans ? styles.arrow__left : styles.hidden}
-          onClick={onClickL}
-        >
-          <FontAwesomeIcon icon={faCircleChevronLeft} size="2x" />
-        </button>
-        <button
-          className={trans === -5280 ? styles.hidden : styles.arrow__right}
-          onClick={onClickR}
-        >
-          <FontAwesomeIcon icon={faCircleChevronRight} size="2x" />
-        </button>
-      </div> */}
       <PostBtn onClick={onClickWrite}>글쓰기</PostBtn>
     </CommunityBox>
   );
